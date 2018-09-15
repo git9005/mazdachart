@@ -27,9 +27,10 @@
             </el-container>
         </el-container>
         <Modal v-model="isShow" :title="cptitle" width="912">
-           <div style="height:400px;overflow-y:auto;padding:10px 10px 10px 10px;">
+           <div style="height:430px;overflow-y:auto;padding:10px 10px 10px 10px;">
                <el-components v-bind:is="viewName"></el-components>
            </div>
+           <div slot="footer"></div>
         </Modal>
     </el-container>
 </template>

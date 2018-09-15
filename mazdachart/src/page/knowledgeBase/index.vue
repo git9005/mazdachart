@@ -1,31 +1,31 @@
 <template>
     <div>
-        <div style="margin-bottom:20px;"><el-input @blur="endInput" @focus="startInput" placeholder="请输入关键字" prefix-icon="el-icon-search"></el-input></div>
+        <div style="margin-bottom:20px;"><el-input v-model="keyword" @blur="endInput" @focus="startInput" placeholder="请输入关键字" prefix-icon="el-icon-search"></el-input></div>
         <div v-if="!showTag">
             <div style="text-align:center;">
             <RadioGroup type="button" class="sel-prm-clr">
             <Radio name="ca" v-for="model in models" v-bind:label="model.productid" class="">{{model.productname}}</Radio>
             </RadioGroup>
             </div>
-            <div style="margin-top:10px;">
+            <div style="margin-top:10px;padding: 10px;">
                 <ul class="buy-point">
-                    <li class="buy-point-item" @click.native="endInput">【易点易评团】万众瞩目的焦点</li>
-                    <li class="buy-point-item" @click.native="endInput">【易点易评团】万众瞩目的焦点</li>
-                    <li class="buy-point-item" @click.native="endInput">【一汽马自达口碑】万众瞩目的焦点</li>
-                    <li class="buy-point-item" @click.native="endInput">【一汽马自达口碑】万众瞩目的焦点</li>
-                    <li class="buy-point-item" @click.native="endInput">【一汽马自达口碑】万众瞩目的焦点</li>
-                    <li class="buy-point-item" @click.native="endInput">【易点易评团】万众瞩目的焦点</li>
+                    <li class="buy-point-item" >【易点易评团】万众瞩目的焦点</li>
+                    <li class="buy-point-item" >【易点易评团】万众瞩目的焦点</li>
+                    <li class="buy-point-item" >【一汽马自达口碑】万众瞩目的焦点</li>
+                    <li class="buy-point-item" >【一汽马自达口碑】万众瞩目的焦点</li>
+                    <li class="buy-point-item" >【一汽马自达口碑】万众瞩目的焦点</li>
+                    <li class="buy-point-item" >【易点易评团】万众瞩目的焦点</li>
                 </ul>
             </div>
         </div>
         <div v-if="showTag">
-           <i class="kn-tag">CX4</i>
-           <i class="kn-tag">阿特兹</i>
-           <i class="kn-tag">外观</i>
-           <i class="kn-tag">阿特兹</i>
-           <i class="kn-tag">外观</i>
-           <i class="kn-tag">阿特兹</i>
-           <i class="kn-tag">外观</i>
+           <i class="kn-tag" @click="endInput(true,'cx4')">CX4</i>
+           <i class="kn-tag" @click="endInput(true,'cx4')">阿特兹</i>
+           <i class="kn-tag" @click="endInput(true,'cx4')">外观</i>
+           <i class="kn-tag" @click="endInput(true,'cx4')">阿特兹</i>
+           <i class="kn-tag" @click="endInput(true,'cx4')">外观</i>
+           <i class="kn-tag" @click="endInput(true,'cx4')">阿特兹</i>
+           <i class="kn-tag" @click="endInput(true,'cx4')">外观</i>
         </div>
     </div>
 </template>
@@ -35,7 +35,7 @@ import {Input} from 'element-ui'
 import {Button,Tag,Radio,RadioGroup} from 'iview'
 export default {
     data(){
-        return {showTag:false,models:[]}
+        return {showTag:false,models:[],keyword:''}
     },
     components:{Input,Button,Tag,Radio,RadioGroup},
     created(){
@@ -48,8 +48,17 @@ export default {
         startInput(){
             this.showTag=true;
         },
-        endInput(){
-            this.showTag=false;
+        endInput(isSelectTag,val){
+            console.log(val)
+            if(isSelectTag){
+                this.keyword=val;
+            }
+            if(this.keyword){
+                this.showTag=false;
+            }
+        },
+        changsearch(){
+            console.log(222);
         }
     }
 }
@@ -68,7 +77,7 @@ export default {
     cursor: pointer;
 }
 .buy-point-item{
-    list-style-type: circle;
+    list-style-type: disc;
     line-height: 40px;height: 40px;
     border-bottom: 1px solid #eee;
     font-size: 14px;

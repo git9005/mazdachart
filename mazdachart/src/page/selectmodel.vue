@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-            <Button class="sel-prm-send">发送</Button>
+            <Button class="sel-prm-send" type="error">发送</Button>
         </div>
         <RadioGroup vertical class="sel-prm-clr">
             <Radio name="ca" v-for="model in models" v-bind:label="model.productid" class="">{{model.productname}}</Radio>
