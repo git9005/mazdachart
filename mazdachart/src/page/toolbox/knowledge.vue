@@ -4,7 +4,7 @@
         <div v-if="!showTag">
             <div style="text-align:center;">
             <RadioGroup type="button" class="sel-prm-clr">
-            <Radio name="ca" v-for="model in models" v-bind:label="model.productid" class="">{{model.productname}}</Radio>
+            <Radio name="ca" v-for="(model,index) in models" :key="index" v-bind:label="model.productid" class="">{{model.productname}}</Radio>
             </RadioGroup>
             </div>
             <div style="margin-top:10px;padding: 10px;">

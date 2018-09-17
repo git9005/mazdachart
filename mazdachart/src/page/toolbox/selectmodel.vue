@@ -1,10 +1,10 @@
 <template>
     <div>
-        <div>
-            <Button class="sel-prm-send" type="error">发送</Button>
+        <div style="text-align:right;">
+            <Button type="error">发送</Button>
         </div>
-        <RadioGroup vertical class="sel-prm-clr">
-            <Radio name="ca" v-for="model in models" v-bind:label="model.productid" class="">{{model.productname}}</Radio>
+        <RadioGroup vertical class="sel-prm-clr" style="width:100%;">
+            <Radio name="ca" v-for="(model,index) in models" :key="index" v-bind:label="model.productid" class="car-model">{{model.productname}}</Radio>
         </RadioGroup>
     </div>
 </template>
@@ -31,6 +31,13 @@ export default {
 }
 .sel-prm-clr{
     clear: both;
+}
+.car-model{
+    border-bottom:1px solid #eee;
+}
+.ivu-radio-group-vertical .ivu-radio-wrapper{
+    height: 60px;
+    line-height: 60px;
 }
 </style>
 

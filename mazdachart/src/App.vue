@@ -21,4 +21,17 @@ export default {
   width: 100%;
   height:800px;
 }
+.ivu-modal-header{
+  background: #565656;
+}
+.ivu-modal-header-inner{
+  color: #fff;
+  text-align: center;
+}
+.ivu-modal-close .ivu-icon-ios-close{
+  color: #fff;
+}
+.ivu-modal-close .ivu-icon-ios-close:hover{
+  color: rgb(190, 178, 178);
+}
 </style>

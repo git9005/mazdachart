@@ -3,7 +3,7 @@
             <Form>
                 <FormItem label="选择车型" :label-width="80">
                     <Select style="width:200px;">
-                        <Option v-bind:on-change="changeCarModel" v-for="cm in carmodels" :value="cm.typeid">{{cm.name}}</Option>
+                        <Option v-bind:on-change="changeCarModel" v-for="(cm,index) in carmodels" :key="index" :value="cm.typeid">{{cm.name}}</Option>
                     </Select>
                     <Select style="width:200px;"></Select>
                 </FormItem>
@@ -22,7 +22,7 @@
                 <Divider/>
                 <FormItem label="省份城市" :label-width="80">
                     <Select style="width:200px;">
-                        <Option v-bind:on-change="changeCarModel" v-for="cm in carmodels" :value="cm.typeid">{{cm.name}}</Option>
+                        <Option v-bind:on-change="changeCarModel" v-for="(cm,index) in carmodels" :key="index" :value="cm.typeid">{{cm.name}}</Option>
                     </Select>
                     <Select style="width:200px;"></Select>
                 </FormItem>

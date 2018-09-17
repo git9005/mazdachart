@@ -7,7 +7,7 @@
             <el-header class="win-header"></el-header>
             <el-container class="win-container-center">
                 <el-aside class="win-aside-users">
-                        <el-row v-for="user in friends" class="user-row">{{user.name}}</el-row>
+                        
                 </el-aside>
                 <el-container style="width:100%;display:inline-block;padding:5px;">
                     <div class="work-con chart-content">聊天内容区</div>
@@ -28,7 +28,7 @@
         </el-container>
         <Modal v-model="isShow" :title="cptitle" width="912">
            <div style="height:430px;overflow-y:auto;padding:10px 10px 10px 10px;">
-               <el-components v-bind:is="viewName"></el-components>
+               <el-components v-bind:is="viewName" :inForm="this"></el-components>
            </div>
            <div slot="footer"></div>
         </Modal>
@@ -39,19 +39,20 @@
 import {Button,Container,Row,Col,Header,Footer,Aside,Main,components} from 'element-ui'
 import {Content,Poptip,Modal} from 'iview'
 
-import selectmodel from '@/page/selectmodel'
-import programme from '@/page/programme'
-import dealersearch from '@/page/dealersearch'
-import index from '@/page/knowledgeBase/index'
-import mycard from '@/page/mycard'
+import paramter from '@/page/toolbox/paramter'
+import selectmodel from '@/page/toolbox/selectmodel'
+import programme from '@/page/toolbox/programme'
+import dealersearch from '@/page/toolbox/dealersearch'
+import knowledge from '@/page/toolbox/knowledge'
+import mycard from '@/page/toolbox/mycard'
 export default {
     data(){return {
-        cmpnames:['selectmodel','programme','dealersearch','index','mycard'],
+        cmpnames:['paramter','programme','dealersearch','knowledge','mycard'],
         cmptitles:['参数表','金融方案','经销商查询','知识库','我的名片'],
         cptitle:'',
-        friends:[],isShow:false,viewName:'selectmodel'
+        friends:[],isShow:false,viewName:'paramter'
     }},
-    components:{Button,Container,Col,Header,Footer,Aside,Main,Row,Content,Poptip,Modal,selectmodel,programme,dealersearch,index,mycard},
+    components:{Button,Container,Col,Header,Footer,Aside,Main,Row,Content,Poptip,Modal,paramter,programme,dealersearch,knowledge,mycard,selectmodel},
     created(){
         let _friends=this.friends;
         for(let i=1;i<=5;i++){

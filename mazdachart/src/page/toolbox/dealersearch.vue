@@ -7,11 +7,11 @@
         </div>
         <Content class="dealer-content">
             <div class="dealer-con-left" style="float:left;">
-                <img src="../assets/defaultmp.png" alt="">
+                <img src="../../assets/defaultmp.png" alt="">
             </div>
                 <div class="dealer-con-right" style="float:left;margin-left:10px;width:43%;">
                     <ul>
-                        <li class="dealer" v-for="(dealer,index) in dealers" @click="selectItem(index)" v-bind:class="{'deal-item-selected':dealer.isSelected}">
+                        <li class="dealer" v-for="(dealer,index) in dealers" :key="index" @click="selectItem(index)" v-bind:class="{'deal-item-selected':dealer.isSelected}">
                             <div style="width: 40px;float: left;line-height: 80px;">
                                 <i class="icon iconfont icon-gouxuan"></i>
                             </div>
